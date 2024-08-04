@@ -20,6 +20,7 @@ class Post (models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='blog_posts')
     title = models.CharField(max_length=100)
+    # todo : add subtitle field
     status = models.CharField(
         max_length=100, choices=STATUS_CHOICES, default='draft')
     slug = models.SlugField(max_length=100, unique_for_date='publish_date')
