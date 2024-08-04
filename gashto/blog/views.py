@@ -13,6 +13,22 @@ def home(request):
     )
 
 
+def about_us(request):
+    context = {}
+
+    return render(
+        request, 'AboutUs.html', context
+    )
+
+
+def contact_us(request):
+    context = {}
+
+    return render(
+        request, 'ContactUs.html', context
+    )
+
+
 posts = Post.objects.all()
 users = User.objects.all()
 
