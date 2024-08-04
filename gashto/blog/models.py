@@ -6,8 +6,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 class PublishedManager (models.Manager):
     def get_queryset(self):
-        return super().get_queryset(PublishedManager,
-                                    self)
+        return super(PublishedManager, self).get_queryset().filter(status='published')
 
 
 class Post (models.Model):
@@ -20,7 +19,7 @@ class Post (models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='blog_posts')
     title = models.CharField(max_length=100)
-    # todo : add subtitle field
+    subtitle = models.CharField(max_length=100, default='subtitle')
     status = models.CharField(
         max_length=100, choices=STATUS_CHOICES, default='draft')
     slug = models.SlugField(max_length=100, unique_for_date='publish_date')
@@ -28,8 +27,8 @@ class Post (models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
     upadted_date = models.DateTimeField(auto_now=True)
     body = models.TextField()
-    objects = models.Manager()
-    published = PublishedManager()
+    objects = models.Manager()  # The default manager.
+    published = PublishedManager()  # The Custom manager
 
     class Meta:
         ordering = ('-publish_date',)
