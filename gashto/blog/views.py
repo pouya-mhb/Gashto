@@ -4,11 +4,13 @@ from .models import Post
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
-# Create your views here.
-
 
 def home(request):
-    return HttpResponse('Home')
+    context = {}
+
+    return render(
+        request, 'Home.html', context
+    )
 
 
 posts = Post.objects.all()
@@ -35,7 +37,7 @@ def post_list(request):
     if request.method == 'GET':
         posts = Post.objects.all()
         context = {
-            'posts': posts,
+            'posts': posts
         }
         return render(
             request, 'PostList.html', context)
