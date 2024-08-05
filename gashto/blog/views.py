@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse
 from .models import Post
 from django.contrib.auth.models import User
@@ -86,16 +86,12 @@ def post_list(request):
         pass
 
 
-def post_detail(request):
-    # post details contains :
-    # title,body,published date and time,author
-    # auto slug
-    # auto published date and time
-
-    # user should be able to delete post
-    # user should be able to update the post
-
-    # Implement Rating later
-    # Implement Comments later
-    # Implement Share later
-    pass
+def post_detail(request, year, month, day, post):
+    post = get_object_or_404(Post, slug=post,
+                             status='published',
+                             publish__year=year,
+                             publish__month=month,
+                             publish__day=day)
+    return render(request,
+                  'PostDetail.html',
+                  {'post': post})

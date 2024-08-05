@@ -15,16 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from blog import views
-from django.conf import settings
-from django.conf.urls.static import static
 
 urlpatterns = [
+
     path('admin/', admin.site.urls),
-    path('', views.home, name='home'),
-    path('posts/', views.post_list, name='posts'),
-    path('newpost/', views.new_post, name='new_post'),
-    path('postdetail/', views.post_detail, name='post_detail'),
-    path('about_us/', views.about_us, name='about_us'),
-    path('contact_us/', views.contact_us, name='contact_us')
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_URL)
+    path('blog/', include('blog.urls', namespace='blog'))
+]
