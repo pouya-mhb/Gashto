@@ -29,15 +29,6 @@ def contact_us(request):
     )
 
 
-posts = Post.objects.all()
-users = User.objects.all()
-
-global_context = {
-    'posts': posts,
-    'users': users
-}
-
-
 @login_required
 def new_post(request):
     # contains title, body,status
@@ -48,10 +39,9 @@ def new_post(request):
 
 
 def post_list(request):
-    # user should be able to add new post
 
     if request.method == 'GET':
-        posts = Post.objects.all()
+        posts = Post.published.all()
         context = {
             'posts': posts
         }
@@ -59,15 +49,16 @@ def post_list(request):
             request, 'PostList.html', context)
 
     if request.method == 'POST':
-        user = User.object.get(username='admin')  # an instance from the User
-        title = 'a good day in mexico'
-        slug = 'a-good-day-in-mexico'
-        body = 'this is a good day in mexico '
-        author = user
+        pass
+        # user = User.object.get(username='admin')  # an instance from the User
+        # title = 'a good day in mexico'
+        # slug = 'a-good-day-in-mexico'
+        # body = 'this is a good day in mexico '
+        # author = user
 
-        # an instance from Post model to save
-        new_post = Post.objects.create(user, title, slug, body, author)
-        new_post.save()
+        # # an instance from Post model to save
+        # new_post = Post.objects.create(user, title, slug, body, author)
+        # new_post.save()
 
         new_post_context = {
 

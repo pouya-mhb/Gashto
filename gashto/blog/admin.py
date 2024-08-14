@@ -22,7 +22,8 @@ class PostAdmin(admin.ModelAdmin):
     ]
 
     prepopulated_fields = {
-        'slug': ('title', 'author')  # i love this one
+        # Auto slug generator by category and title
+        'slug': ('category', 'title')
     }
 
     raw_id_fields = ('author',)
