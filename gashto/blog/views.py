@@ -41,40 +41,12 @@ def new_post(request):
 def post_list(request):
 
     if request.method == 'GET':
-        posts = Post.published.all()
+        posts = Post.publishedObjects.get_published_posts()
         context = {
             'posts': posts
         }
         return render(
-            request, 'PostList.html', context)
-
-    if request.method == 'POST':
-        pass
-        # user = User.object.get(username='admin')  # an instance from the User
-        # title = 'a good day in mexico'
-        # slug = 'a-good-day-in-mexico'
-        # body = 'this is a good day in mexico '
-        # author = user
-
-        # # an instance from Post model to save
-        # new_post = Post.objects.create(user, title, slug, body, author)
-        # new_post.save()
-
-        new_post_context = {
-
-            # author
-            # status
-            # title
-            # body
-            # date_published
-
-        }
-
-        return render(
-            request, 'PostList.html',)
-
-    else:
-        pass
+            request, 'Blog/PostList.html', context)
 
 
 def post_detail(request, year, month, day, post):

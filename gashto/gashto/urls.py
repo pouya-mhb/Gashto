@@ -27,6 +27,6 @@ urlpatterns = [
     # path('reservation/', include('reservation.urls')),
     # path('payment/', include('payment.urls')),
     # path('event/', include('event.urls')),
-    # path('/place', include('place.urls')),
+    # path('place/', include('place.urls')),
     path('blog/', include('blog.urls'))
 ]

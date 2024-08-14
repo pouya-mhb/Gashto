@@ -46,7 +46,8 @@ class Post (models.Model):
     to keep the objects manager as well, you have to add it explicitly to your model.
     '''
     objects = models.Manager()  # The default manager
-    published = PublishedManager()  # The custom manager for getting all published posts
+    # The custom manager for getting all published posts
+    publishedObjects = PublishedManager()
 
     class Meta:
         ordering = ('-publish_date',)
