@@ -25,9 +25,7 @@ urlpatterns = [
     path('newpost/', views.new_post, name='new_post'),
     path('about_us/', views.about_us, name='about_us'),
     path('contact_us/', views.contact_us, name='contact_us'),
-    path('<int:year>/<int:month>/<int:day>/<slug:post>/',
-         views.post_detail, name='post_detail_date'),
-    path("articles/<slug:title>/", views.post_detail, name="post_detail_title")
-    # path("articles/<slug:title>/<int:section>/",
-    #      views.section, name="article-section")
+    # path('<slug:post>/<int:year>/<int:month>/<int:day>',
+    #      views.post_detail, name='post_detail')
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_URL)

@@ -9,7 +9,7 @@ def home(request):
     context = {}
 
     return render(
-        request, 'Home.html', context
+        request, 'Website/Home.html', context
     )
 
 
@@ -17,7 +17,7 @@ def about_us(request):
     context = {}
 
     return render(
-        request, 'AboutUs.html', context
+        request, 'Website/AboutUs.html', context
     )
 
 
@@ -25,17 +25,31 @@ def contact_us(request):
     context = {}
 
     return render(
-        request, 'ContactUs.html', context
+        request, 'Website/ContactUs.html', context
     )
 
 
 @login_required
 def new_post(request):
-    # contains title, body,status
-    # auto slug
-    # auto date and time
-    # auto autor - if user/autor is not none and @login_required
-    pass
+    if request.method == 'POST':
+        pass
+        # author =
+        # title
+        # subtitle
+        # status
+        # slug
+        # category
+        # publish_date
+        # created_date
+        # upadted_date
+        # body
+
+    else:
+        context = {
+        }
+
+        return render(
+            request, 'Blog/PostNew.html', context)
 
 
 def post_list(request):
@@ -56,5 +70,5 @@ def post_detail(request, year, month, day, post):
                              publish__month=month,
                              publish__day=day)
     return render(request,
-                  'PostDetail.html',
+                  'Blog/PostDetail.html',
                   {'post': post})
