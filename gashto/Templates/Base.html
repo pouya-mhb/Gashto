@@ -27,8 +27,8 @@
 
 <body>
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
-        <div class="container px-4 px-lg-5">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgba(203, 145, 37, 0.697);" id="mainNav">
+        <div class="container px-4 px-md-5">
             <a class="navbar-brand" href="{% url 'home' %}">گشتو</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,25 +50,16 @@
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'contact_us' %}">تماس با
                             ما</a>
                     </li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'new_post' %}">پست
+                            جدید</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <!-- Page Header-->
-    <header class="masthead" style="background-image: url('{{ STATIC_URL }}/static/Photos/home-bg.jpg')">
-        <div class="container position-relative px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7">
-                    <div class="site-heading">
-                        <h1>گشتو</h1>
-                        <span class="subheading">تفریحتو پیدا کن</span>
-                        <!-- <span class="subheading">با گشتو بگرد</span>
-                        <span class="subheading">بزن گشتو، بگرد کافه رو</span> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+    {% block header %}
+
+    {% endblock %}
     <!-- Main Content-->
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">

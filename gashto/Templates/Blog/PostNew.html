@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load bootstrap5 %}
+{% load static %}
+
+
+{% block content %}
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<h1>مقاله جدید</h1>
+
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <form>
+            <div class="row mb-3">
+                <label for="title" class="col-sm-2 col-form-label">عنوان</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="inputEmail3">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="subtitle" class="col-sm-2 col-form-label">زیر عنوان</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword3">
+                </div>
+            </div>
+            <fieldset class="row mb-3">
+                <legend class="col-form-label col-sm-2 pt-0">وضعیت نوشته</legend>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input class="status" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                        <label class="form-check-label" for="gridRadios1">
+                            انتشار
+                        </label>
+                        <input class="status" type="radio" name="gridRadios" id="gridRadios1" value="option1">
+                        <label class="form-check-label" for="gridRadios1">
+                            پیش‌نویس
+                        </label>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <label class="visually-hidden" for="inlineFormSelectPref">دسته بندی</label>
+                    <select class="form-select" id="inlineFormSelectPref">
+                        <option selected>انتخاب ...</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <button type="submit" class="btn btn-primary">منتشر کردن</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
