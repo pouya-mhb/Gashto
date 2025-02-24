@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from blog.models import Post
 
 
 class Profile(models.Model):
@@ -76,7 +77,7 @@ class Item(models.Model):
 
 class Rate(models.Model):
     post = models.ForeignKey(
-        'Post', on_delete=models.CASCADE, related_name='rates')
+        Post, on_delete=models.CASCADE, related_name='rates')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     rating = models.PositiveIntegerField()
 
@@ -86,7 +87,7 @@ class Rate(models.Model):
 
 class Review(models.Model):
     post = models.ForeignKey(
-        'Post', on_delete=models.CASCADE, related_name='reviews')
+        Post, on_delete=models.CASCADE, related_name='reviews')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
