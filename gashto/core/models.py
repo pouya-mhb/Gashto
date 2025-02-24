@@ -94,3 +94,13 @@ class Review(models.Model):
 
     def __str__(self):
         return f'{self.user.username} - {self.content[:20]}'
+
+
+class Owner(models.Model):
+    profile = models.ForeignKey(
+        Profile, on_delete=models.CASCADE, related_name='owned_places')
+    place = models.ForeignKey(
+        Place, on_delete=models.CASCADE, related_name='owners')
+
+    def __str__(self):
+        return f'{self.profile.user.username} - {self.place.title}'
