@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load bootstrap5 %}
+{% load static %}
+
+{% block content %}
+
+<h1>Place List</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Subcategory</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Location</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for place in places %}
+        <tr>
+            <td><a href="{% url 'place_detail' place.pk %}">{{ place.title }}</a></td>
+            <td>{{ place.category.name }}</td>
+            <td>{{ place.subcategory.name }}</td>
+            <td>{{ place.address }}</td>
+            <td>{{ place.phone }}</td>
+            <td>{{ place.location }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

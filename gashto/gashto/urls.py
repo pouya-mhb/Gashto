@@ -21,7 +21,7 @@ urlpatterns = [
 
     path('', views.home, name='home'),
     path('admin/', admin.site.urls),
-    # path('core/', include('blog.urls')),
+    path('core/', include('core.urls')),
     # path('account/', include('account.urls')),
     # path('profile/', include('profile.urls')),
     # path('reservation/', include('reservation.urls')),
